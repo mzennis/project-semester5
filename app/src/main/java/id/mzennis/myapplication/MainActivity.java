@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_stopwatch) {
             setTitle("Stopwatch");
             fragment = StopwatchFragment.newInstance();
+        } else if (id == R.id.nav_flash) {
+            setTitle("Flash");
+            fragment = TorchFragment.newInstance();
         }
         drawer.closeDrawer(GravityCompat.START);
 
