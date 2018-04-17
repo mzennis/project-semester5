@@ -20,6 +20,10 @@
             android:id="@+id/nav_stopwatch"
             android:icon="@drawable/ic_stopwatch"
             android:title="Stopwatch" />
+        <item
+            android:id="@+id/nav_vibrate"
+            android:icon="@drawable/ic_vibrate"
+            android:title="Vibrate" />
     </group>
 
 </menu>
