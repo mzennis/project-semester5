@@ -6,5 +6,7 @@ This project contains :
 - Notes
 - Stopwatch
 - Torch
+- Vibrate
+- Animation (like Screensaver 1minute)
 
 Screenshot will be added soon.
