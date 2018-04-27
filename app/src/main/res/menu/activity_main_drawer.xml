@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_stopwatch"
             android:title="Stopwatch" />
         <item
+            android:id="@+id/nav_flash"
+            android:icon="@drawable/ic_flash"
+            android:title="Flash" />
+        <item
             android:id="@+id/nav_vibrate"
             android:icon="@drawable/ic_vibrate"
             android:title="Vibrate" />

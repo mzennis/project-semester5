@@ -68,6 +68,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == R.id.nav_stopwatch) {
             setTitle("Stopwatch");
             fragment = StopwatchFragment.newInstance();
+        } else if (id == R.id.nav_flash) {
+            setTitle("Flash");
+            fragment = TorchFragment.newInstance();
         } else if (id == R.id.nav_vibrate) {
             setTitle("Vibrate");
             fragment = VibrateFragment.newInstance();
