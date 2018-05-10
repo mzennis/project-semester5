@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -12,7 +13,7 @@ import android.view.View;
  * Created by meta on 27/04/18.
  */
 
-public class AnimationActivity extends BaseActivity {
+public class AnimationActivity extends AppCompatActivity {
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, AnimationActivity.class);
