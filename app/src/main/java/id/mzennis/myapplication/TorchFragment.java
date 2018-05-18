@@ -37,7 +37,6 @@ public class TorchFragment extends Fragment {
     private boolean isFlashOn;
     private boolean hasFlash;
     private Parameters params;
-    private MediaPlayer mp;
 
     private ImageButton mTorchOnOffButton;
     private TextView textView;
@@ -158,6 +157,7 @@ public class TorchFragment extends Fragment {
      * Playing sound will play button toggle sound on flash on / off
      */
     private void playSound() {
+        MediaPlayer mp;
         if (isFlashOn) {
             mp = MediaPlayer.create(getActivity(), R.raw.light_switch_off);
         } else {
