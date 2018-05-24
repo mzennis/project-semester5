@@ -75,8 +75,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             setTitle("Vibrate");
             fragment = VibrateFragment.newInstance();
         } else if (id == R.id.nav_sqlite) {
-            setTitle("Sqlite");
-            fragment = SqliteFragment.newInstance();
+            setTitle("PLAT NOMOR");
+            fragment = PlatNomorFragment.newInstance();
         }
         drawer.closeDrawer(GravityCompat.START);
 

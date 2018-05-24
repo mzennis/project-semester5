@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // create notes table
         db.execSQL(Contact.CREATE_TABLE);
+        db.execSQL(PlatCode.CREATE_TABLE);
     }
 
     // Upgrading database
@@ -35,9 +36,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + Contact.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + PlatCode.TABLE_NAME);
 
         // Create tables again
         onCreate(db);
+    }
+
+    public long insertBulkPlatCode(List<PlatCode> platCodes) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        for (PlatCode item : platCodes) {
+
+            ContentValues values = new ContentValues();
+
+            values.put(PlatCode.COLUMN_KODE, item.getKode());
+            values.put(PlatCode.COLUMN_DAERAH, item.getDaerah());
+            values.put(PlatCode.COLUMN_PROVINSI, item.getProvinsi());
+
+            // insert row
+            long id = db.insert(PlatCode.TABLE_NAME, null, values);
+        }
+
+        // close db connection
+        db.close();
+
+        // return newly inserted row id
+        return 1;
     }
 
     public long insertBulkContac(List<Contact> contacts) {
@@ -110,6 +134,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
 
         return note;
+    }
+
+    public List<PlatCode> getAllPlatCodes() {
+        List<PlatCode> platCodes = new ArrayList<>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + PlatCode.TABLE_NAME;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                PlatCode item = new PlatCode();
+                item.setKode(cursor.getString(cursor.getColumnIndex(PlatCode.COLUMN_KODE)));
+                item.setDaerah(cursor.getString(cursor.getColumnIndex(PlatCode.COLUMN_DAERAH)));
+                item.setProvinsi(cursor.getString(cursor.getColumnIndex(PlatCode.COLUMN_PROVINSI)));
+
+                platCodes.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return platCodes;
     }
 
     public List<Contact> getAllContacts() {
